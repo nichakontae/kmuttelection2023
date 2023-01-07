@@ -1,0 +1,11 @@
+@import './font.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  *, html, body {
+    font-family: 'DB Heavent', sans-serif;
+  }
+}

@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "DB Heavent bold";
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: "1%";
+  align-items: center;
+  src: url("../public/fonts/DB\ Heavent\ Blod.ttf");
+}
+
+@font-face {
+  font-family: "DB Heavent medium";
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: "1%";
+  align-items: center;
+  src: url("../public/fonts/DB\ Heavent\ Med\ v3.2.1.ttf");
+}
+
+@font-face {
+  font-family: "DB Heavent";
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: "1%";
+  align-items: center;
+  src: url("../public/fonts/DB\ Heavent.ttf");
+}
