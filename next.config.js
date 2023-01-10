@@ -5,7 +5,7 @@ const moduleExports = {
     CKF_RECIPES_API: process.env.CKF_RECIPES_API,
   },
   images: {
-    domains: ["election.kmutt.ac.th"],
+    domains: ["election.kmutt.ac.th", "0.tcp.ap.ngrok.io"],
   },
   experimental: {
     outputStandalone: true,
