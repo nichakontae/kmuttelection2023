@@ -1,10 +1,10 @@
-import axios from "axios"
+import axios from "axios";
 
 const api = axios.create({
-    baseURL: "https://election.kmutt.ac.th", 
-    headers: {
-        'Content-Type': 'application/json'
-    }
-})
+  baseURL: "tcp://0.tcp.ap.ngrok.io:11353",
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 
-export default api
+export default api;

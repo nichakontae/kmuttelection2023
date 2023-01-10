@@ -11,9 +11,9 @@ class CoreContext {
   selectedParty: string = "";
   partyVote: number = -2;
   councilList = [];
-  userImage = null
+  userImage = null;
   token: null;
-  apiPath: string = "https://election.kmutt.ac.th";
+  apiPath: string = "tcp://0.tcp.ap.ngrok.io:11353";
   submitting = false;
 
   constructor() {
@@ -40,12 +40,11 @@ class CoreContext {
     try {
       const res = await axios.get(this.user.imagePath, {
         headers: { Authorization: this.token },
-        responseType: "arraybuffer"
-      },
-      );
+        responseType: "arraybuffer",
+      });
       if (res.status === 200) {
-        const base64 = Buffer.from(new Int8Array(res.data)).toString('base64')
-        this.userImage = base64
+        const base64 = Buffer.from(new Int8Array(res.data)).toString("base64");
+        this.userImage = base64;
       }
     } catch (err) {
       console.log(err);
