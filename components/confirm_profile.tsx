@@ -16,11 +16,11 @@ const ConfirmProfile = () => {
       {() => (
         <div className="flex flex-col items-center w-full h-[90vh] pt-[68px]">
           <div className="w-full h-[11vh] flex flex-col justify-center">
-            <p className="w-full text-center text-[24px] font-bold">
+            <p className="w-full text-center text-[40px] font-bold">
               ยืนยันข้อมูลนักศึกษา
             </p>
           </div>
-          <div className="bg-white p-5 w-[40vh]">
+          <div className="bg-white p-5 w-[40vh] rounded-2xl shadow-2xl">
             <div className="flex justify-center w-full mb-5">
               <Image
                 src={`data:;base64,${context.userImage}`}

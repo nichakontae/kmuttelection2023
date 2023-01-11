@@ -18,14 +18,20 @@ const HomeRoute = () => {
   return (
     <Observer>
       {() => (
-        <div className="w-screen min-h-screen max-h-screen overflow-y-auto">
+        <div
+          className={`w-screen min-h-screen max-h-screen overflow-y-auto ${
+            context.step == 2 || context.step == 7
+              ? "bg-gradient-to-r from-base_orange to-base_yellow"
+              : ""
+          }`}
+        >
           {context.step !== 1 && (
             <div className="z-10 w-full sticky top-0 flex flex-col text-white">
-              <div className="flex items-center w-full text-[11px] justify-center h-1/3 bg-base_orange">
+              <div className="flex items-center w-full text-[11px] justify-center h-1/3 bg-gradient-to-r from-base_orange to-base_yellow ">
                 การเลือกตั้งคณะกรรมการองค์การบริหารองค์การนักศึกษาและสภานักศึกษา
                 มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี
               </div>
-              <div className="flex items-center justify-center w-full space-x-1 bg-white h-2/3">
+              <div className="flex items-center justify-center w-full space-x-1 bg-white h-2/3 bg-[#F3ECE2]">
                 <Image
                   src={logo}
                   height={33}
