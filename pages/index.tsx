@@ -21,7 +21,7 @@ const HomeRoute = () => {
         <div
           className={`w-screen min-h-screen max-h-screen overflow-y-auto ${
             context.step == 2 || context.step == 7
-              ? "bg-gradient-to-r from-base_orange to-base_yellow"
+              ? "bg-gradient-to-b from-base_orange to-base_yellow"
               : ""
           }`}
         >
