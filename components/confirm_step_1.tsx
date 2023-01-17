@@ -10,7 +10,7 @@ const ConfirmStep1 = () => {
     <Observer>
       {() => (
         <div className="flex flex-col items-center w-full h-[90vh] pt-[68px]">
-          <div className="flex flex-col justify-center w-full bg-white">
+          <div className="flex flex-col justify-center w-full bg-white" style={{ background: "#F6C950" }}>
             <p className="w-full text-center text-[24px] font-bold ">
               ยืนยันการเลือกคณะกรรมการ
             </p>
@@ -19,7 +19,12 @@ const ConfirmStep1 = () => {
             </p>
           </div>
           <form>
-            <div className="grid grid-rows-6 min-w-[218px] min-h-[341px] p-2 mt-8 bg-white">
+            <div className="grid grid-rows-6 min-w-[358px] min-h-[513px] p-2 mt-8 bg-white "
+                style={{ 
+                    boxShadow:" 0px 4px 30px rgba(0, 0, 0, 0.25)",
+                    borderRadius: "9px"
+                    }}>
+                
               <p className=" text-center text-[24px] font-bold row-span-1">
                 คุณเลือก
               </p>
