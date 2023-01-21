@@ -13,8 +13,8 @@ const SelectStep2 = () => {
   return (
     <Observer>
       {() => (
-        <div className="flex flex-col items-center w-full h-[90vh] pt-[68px]">
-          <div className="w-full bg-white flex flex-col justify-center" style={{ background: "#F6C950" }}>
+        <div className="flex flex-col items-center w-full h-[90vh] pt-[3rem]">
+          <div className="w-full bg-base_yellow flex flex-col justify-center">
             <p className="w-full text-center text-[24px] font-bold">
               เลือกสภานักศึกษา
             </p>
@@ -27,10 +27,7 @@ const SelectStep2 = () => {
           </div>
           <div className="lg:w-full w-full px-6 mt-10 lg:px-[128px] mb-10 grid grid-flow-row grid-cols-1 lg:grid-cols-2 gap-10">
             {_.map(context.councilList, (item, index) => (
-              <div className="bg-white h-[107px] flex px-[22px] py-4 space-x-3" style={{ 
-                boxShadow:" 0px 4px 10px rgba(0, 0, 0, 0.15)",
-                borderRadius: "9px"
-                }}>
+              <div className="bg-white h-[107px] flex px-[22px] py-4 space-x-3 rounded-2xl shadow-lg">
                 <Image
                   src={context.apiPath + "/api/files/" + item.imageId}
                   width={61}

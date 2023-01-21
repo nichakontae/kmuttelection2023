@@ -21,6 +21,8 @@ module.exports = {
         dark_orange: "#C4502F",
         dark_gray: "#2F3336",
         dim_yellow: "#FBE9B4",
+        dim_brown:"#CCB6A8",
+        base_blue:"#1C447D"
       },
     },
   },

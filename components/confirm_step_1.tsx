@@ -1,16 +1,25 @@
 import { coreContext } from "context/core_context";
 import { Observer } from "mobx-react-lite";
 import Image from "next/image";
-import React, { useContext } from "react";
+import _ from "lodash";
+import React, { useContext, useEffect, useState } from "react";
 import Button from "./button";
 const ConfirmStep1 = () => {
   const context = useContext(coreContext);
+  const [amountOfParty, setAmountOfParty] = useState(0);
+
+  useEffect(() => {
+    setAmountOfParty(_.size(context.partyList));
+  }, []);
 
   return (
     <Observer>
       {() => (
-        <div className="flex flex-col items-center w-full h-[90vh] pt-[68px]">
-          <div className="flex flex-col justify-center w-full bg-white" style={{ background: "#F6C950" }}>
+        <div className="flex flex-col items-center w-full h-[90vh] pt-[3rem]">
+          <div
+            className="flex flex-col justify-center w-full bg-white"
+            style={{ background: "#F6C950" }}
+          >
             <p className="w-full text-center text-[24px] font-bold ">
               ยืนยันการเลือกคณะกรรมการ
             </p>
@@ -19,23 +28,44 @@ const ConfirmStep1 = () => {
             </p>
           </div>
           <form>
-            <div className="grid grid-rows-6 min-w-[358px] min-h-[513px] p-2 mt-8 bg-white "
-                style={{ 
-                    boxShadow:" 0px 4px 30px rgba(0, 0, 0, 0.25)",
-                    borderRadius: "9px"
-                    }}>
-                
-              <p className=" text-center text-[24px] font-bold row-span-1">
-                คุณเลือก
-              </p>
+            <div
+              className="grid grid-rows-6 min-w-[358px] min-h-[513px] p-2 mt-8 bg-white rounded-2xl"
+              style={{
+                boxShadow: " 0px 4px 30px rgba(0, 0, 0, 0.25)",
+              }}
+            >
+              <p className=" text-center text-[24px] font-bold">คุณเลือก</p>
               <div className="h-full row-span-5 pl-5 pr-5 pd-5">
                 {context.selectedParty ? (
                   <>
-                    <p className=" text-center text-[24px] font-bold ">
-                      {context.partyVote === 1 && <span className="text-green-600">ยอมรับ</span>}
-                      {context.partyVote === -1 && <span className="text-base_orange">ไม่ยอมรับ</span>}
-                    </p>
-                    <div className="flex flex-row justify-center p-1">
+                    {(() => {
+                      if (amountOfParty == 1) {
+                        return (
+                          <div>
+                            <p className=" text-center text-[24px] font-bold mt-[-2.5rem]">
+                              {context.partyVote === 1 && (
+                                <span className="text-green-600 text-[24px]">
+                                  ยอมรับ
+                                </span>
+                              )}
+                              {context.partyVote === -1 && (
+                                <span className="text-base_orange text-[24px]">
+                                  ไม่ยอมรับ
+                                </span>
+                              )}
+                            </p>
+                          </div>
+                        );
+                      } else {
+                        return "";
+                      }
+                    })()}
+
+                    <div
+                      className={`flex flex-row justify-center p-1 ${
+                        amountOfParty == 1 ? "" : "mt-[-3rem]"
+                      }`}
+                    >
                       <p className=" text-center text-[24px] font-bold ">
                         หมายเลข {context.selectedParty}
                         &nbsp;
@@ -50,8 +80,8 @@ const ConfirmStep1 = () => {
                         "/api/files/" +
                         context.findParty()?.imageId
                       }
-                      width={180}
-                      height={246}
+                      width={300}
+                      height={`${amountOfParty == 1? 346: 400}`}
                       alt="Party"
                     />
                   </>

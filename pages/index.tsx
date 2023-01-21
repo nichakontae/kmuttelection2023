@@ -22,7 +22,7 @@ const HomeRoute = () => {
           className={`w-screen min-h-screen max-h-screen overflow-y-auto ${
             context.step == 2 || context.step == 7
               ? "bg-gradient-to-b from-base_orange to-base_yellow"
-              : ""
+              : "bg-white"
           }`}
         >
           {context.step !== 1 && (
@@ -48,7 +48,7 @@ const HomeRoute = () => {
                 />
               </div>
               {context.step !== 2 && context.step !== 7 && (
-                <div className="w-full h-[14px] bg-dim_yellow">
+                <div className="w-full h-[14px] bg-[#D9D9D8]">
                   <div
                     className={`h-[14px] bg-base_orange ${
                       context.totalStep === 5 && context.step === 3 && "w-1/5"

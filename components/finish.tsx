@@ -5,7 +5,7 @@ import finish from "../public/finish.png";
 const Finish = () => {
   return (
     <div className="flex items-center justify-center w-full h-[90vh]">
-      <div className="w-[272px] h-[286px] bg-white flex flex-col pt-[37px]">
+      <div className="w-[272px] h-[286px] bg-white flex flex-col pt-[37px] rounded-2xl shadow-2xl">
         <Image
           src={finish}
           width={118}
