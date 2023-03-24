@@ -8,19 +8,23 @@ import Button from "./button";
 const ConfirmProfile = () => {
   const context = useContext(coreContext);
   const router = useRouter();
+  const fetchCouncil = async () => {
+    await context.prepareCouncil();    
+  }
   useEffect(() => {
     context.prepareUserImage();
+    fetchCouncil();
   });
   return (
     <Observer>
       {() => (
         <div className="flex flex-col items-center w-full h-[90vh] pt-[68px]">
           <div className="w-full h-[11vh] flex flex-col justify-center">
-            <p className="w-full text-center text-[24px] font-bold">
+            <p className="w-full text-center text-[40px] font-bold">
               ยืนยันข้อมูลนักศึกษา
             </p>
           </div>
-          <div className="bg-white p-5 w-[40vh]">
+          <div className="bg-white p-5 w-[40vh] rounded-2xl shadow-2xl">
             <div className="flex justify-center w-full mb-5">
               <Image
                 src={`data:;base64,${context.userImage}`}
@@ -62,7 +66,10 @@ const ConfirmProfile = () => {
             <Button
               color="orange"
               title="ถูกต้อง"
-              onClick={() => context.stepUp()}
+              onClick={() => {
+                if (context.totalStep === 5) context.stepUp();
+                if (context.totalStep === 3) context.stepToFinish();
+              }}
             />
           </div>
         </div>

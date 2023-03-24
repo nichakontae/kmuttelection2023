@@ -13,8 +13,9 @@ class CoreContext {
   councilList = [];
   userImage = null
   token: null;
-  apiPath: string = "http://0.tcp.ap.ngrok.io:11353";
+  apiPath: string = "https://election.kmutt.ac.th";
   submitting = false;
+  
 
   constructor() {
     makeAutoObservable(this);
@@ -89,7 +90,7 @@ class CoreContext {
         headers: { Authorization: this.token },
       });
       if (res.status === 200) {
-        this.step = 7;
+        this.step = 5;
       }
     } catch (err) {
       console.log(err);
@@ -113,6 +114,10 @@ class CoreContext {
   stepDown = () => {
     this.step--;
   };
+
+  stepToFinish = () => {
+    this.step = 6;
+  }
 }
 
 export const coreContext = createContext(new CoreContext());

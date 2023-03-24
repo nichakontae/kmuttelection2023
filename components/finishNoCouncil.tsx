@@ -1,8 +1,8 @@
 import Image from "next/image";
 import React from "react";
-import finish from "../public/finish.png";
+import finish from "../public/thank-you.png";
 
-const Finish = () => {
+const FinishNoCouncil = () => {
   return (
     <div className="flex items-center justify-center w-full h-[90vh]">
       <div className="w-[272px] h-[286px] bg-white flex flex-col pt-[37px] rounded-2xl shadow-2xl">
@@ -14,10 +14,10 @@ const Finish = () => {
           alt="Thank you"
         />
         <p className="pt-3 text-center text-[24px] font-bold">
-          การเลือกตั้งสำเร็จ
+            คณะของคุณไม่มีผู้สมัครสภานักศึกษา
         </p>
         <p className="text-center text-base_gray text-[16px]">
-          <p>ขอบคุณที่ร่วมมาใช้สิทธิ์ของท่าน</p>
+          <p>ขอบคุณสำหรับความร่วมมือ</p>
           <p>และขอบคุณที่เป็นส่วนหนึ่ง</p>
           <p>ในการเปลี่ยนแปลงมหาวิทยาลัยของพวกเรา</p>
         </p>
@@ -26,4 +26,4 @@ const Finish = () => {
   );
 };
 
-export default Finish;
+export default FinishNoCouncil;

@@ -7,6 +7,7 @@ import axios from "../axios";
 import logo from "../public/KMUTT_Logo.png";
 import electionLogo from "../public/Logo.png";
 import Button from "./button";
+import imgforlogin from '../public/login.png'
 
 const Login = () => {
   const [isWrongAuthen, setIsWrongAuthen] = useState("");
@@ -60,14 +61,14 @@ const Login = () => {
           result.studentId,
           result.facultyTH,
           result.fieldTH,
-          result.studentYear,
+          parseInt(result.studentYear)+1,
           result.imagePath
         );
         context.setValue("user", user);
         context.setValue("token", result.jwttoken);
         // console.log(context.user);
         // console.log(context.token);
-        context.stepUp();
+        context.stepUp();       
       })
       .catch((error) => {
         if (error.response.data.status == 400) {
@@ -79,100 +80,109 @@ const Login = () => {
   return (
     <Observer>
       {() => (
-        <div className="flex flex-col items-center w-full h-[90vh] pt-[68px] ">
-          <div>
-            <Image
-              src={logo}
-              height={70}
-              width={70}
-              objectFit="contain"
-              alt="KMUTT"
-            />
-            <Image
-              src={electionLogo}
-              height={70}
-              width={100}
-              objectFit="contain"
-              alt="KMUTT Election 2022"
-            />
+        <div className="lg:flex items-center">
+          <div className="hidden lg:block bg-[#F3ECE2] h-[100vh] p-[4rem]">
+             <Image src={imgforlogin} alt="the day for election"  />
           </div>
+        
+          <div className="flex flex-col items-center justify-center w-full lg:w-[80%] h-[100vh] pt-[68px] ">
+            <div>
+              <Image
+                src={logo}
+                height={100}
+                width={100}
+                objectFit="contain"
+                alt="KMUTT"
+              />
+              <Image
+                src={electionLogo}
+                height={100}
+                width={130}
+                objectFit="contain"
+                alt="KMUTT Election 2023"
+              />
+            </div>
 
-          <div className="shrink-0 w-full flex flex-col justify-center my-px">
-            <p className="w-full text-center text-[24px] font-bold">
-              ระบบการเลือกตั้ง
-            </p>
-            <p className="w-full text-center text-[15px]">
-              คณะกรรมการองค์การบริหารองค์การนักศึกษาและสภานักศึกษา
-            </p>
-            <p className="w-full text-center text-[15px]">
-              มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี
-            </p>
-          </div>
-
-          <div className="shrink-0 bg-white p-5 w-[300px]">
-            <div className="mb-2">
-              <p className="w-full text-center text-base_gray text-[18px]">
-                เข้าสู่ระบบด้วย KMUTT Internet Account
+            <div className="shrink-0 w-full flex flex-col justify-center mt-[-1.5rem]">
+              <p className="w-full text-center text-[40px] font-bold text-base_orange">
+                ระบบการเลือกตั้ง
               </p>
+              <div className="mt-[-0.5rem]">
+                <p className="w-full text-center text-[15px]">
+                  คณะกรรมการองค์การบริหารองค์การนักศึกษาและสภานักศึกษา
+                </p>
+                <p className="w-full text-center text-[15px]">
+                  มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี
+                </p>
+              </div>
             </div>
-            <div className="mb-2">
-              <input
-                id="stuID"
-                ref={usernameRef}
-                type="text"
-                className={
-                  isWrongAuthen
-                    ? "block w-full text-[18px] border-solid border-2 border-red-400 px-1 rounded"
-                    : "block w-full text-[18px] border-solid border-2 border-gray-300 px-1 rounded"
-                }
-                placeholder="รหัสนักศึกษา"
-                onKeyUp={(e) => {
-                  e.key === "Enter" && onSubmit();
-                }}
-              />
-            </div>
-            <div className="mb-5">
-              <input
-                id="stuPass"
-                ref={passwordRef}
-                type="password"
-                className={
-                  isWrongAuthen
-                    ? "block w-full text-[18px] border-solid border-2 border-red-400 px-1 rounded"
-                    : "block w-full text-[18px] border-solid border-2 border-gray-300 px-1 rounded"
-                }
-                placeholder="รหัสผ่าน"
-                onKeyUp={(e) => {
-                  e.key === "Enter" && onSubmit();
-                }}
-              />
-            </div>
-            <div className="flex justify-center text-red-400 font-bold text-[16px]">
-              {isWrongAuthen}
-            </div>
-            <a
-              className="flex justify-center text-base_orange font-bold text-[16px]"
-              href="https://myaccount.kmutt.ac.th/accountactivation-app/recovery-account"
-            >
-              ลืมรหัสผ่าน?
-            </a>
-          </div>
 
-          <div className="mt-5 mb-5">
-            <Button
-              color="orange"
-              title="เข้าสู่ระบบ"
-              onClick={() => onSubmit()}
-            />
-          </div>
-          <div className="flex justify-end">
-            <p className="pr-1">สามารถติดตามข้อมูลข่าวสารเพิ่มเติมได้ที่</p>
-            <a
-              className="font-bold text-base_orange"
-              href="https://www.facebook.com/KMUTT-Election-111526570306064"
-            >
-              KMUTT Election
-            </a>
+            <div className="shrink-0 p-5 w-[300px] mt-[2rem]">
+              <div className="mb-2">
+                <p className="w-full text-center text-base_gray text-[18px]">
+                  เข้าสู่ระบบด้วย KMUTT Internet Account
+                </p>
+              </div>
+              <div className="mb-2">
+                <input
+                  id="stuID"
+                  ref={usernameRef}
+                  type="text"
+                  className={
+                    isWrongAuthen
+                      ? "block w-full text-[18px] border-solid border-2 border-red-400 px-1 rounded"
+                      : "block w-full text-[18px] border-solid border-2 border-gray-300 px-1 rounded"
+                  }
+                  placeholder="รหัสนักศึกษา"
+                  onKeyUp={(e) => {
+                    e.key === "Enter" && onSubmit();
+                  }}
+                />
+              </div>
+              <div className="mb-5">
+                <input
+                  id="stuPass"
+                  ref={passwordRef}
+                  type="password"
+                  className={
+                    isWrongAuthen
+                      ? "block w-full text-[18px] border-solid border-2 border-red-400 px-1 rounded"
+                      : "block w-full text-[18px] border-solid border-2 border-gray-300 px-1 rounded"
+                  }
+                  placeholder="รหัสผ่าน"
+                  onKeyUp={(e) => {
+                    e.key === "Enter" && onSubmit();
+                  }}
+                />
+              </div>
+              <div className="flex justify-center text-red-400 font-bold text-[16px]">
+                {isWrongAuthen}
+              </div>
+              <a
+                className="flex justify-end text-base_orange font-bold text-[16px]"
+                href="https://myaccount.kmutt.ac.th/accountactivation-app/recovery-account"
+              >
+                ลืมรหัสผ่าน?
+              </a>
+            </div>
+
+            <div className="mt-5 mb-5">
+              <div
+                className="w-[127px] h-[35px] rounded-[20px] flex items-center justify-center text-white cursor-pointer shadow-lg shadow-base_orange bg-gradient-to-r from-base_orange to-base_yellow hover:from-[#C34322] to-[#DCAB28]"
+                onClick={() => onSubmit()}
+              >
+                เข้าสู่ระบบ
+              </div>
+            </div>
+            <div className="flex justify-end">
+              <p className="pr-1">สามารถติดตามข้อมูลข่าวสารเพิ่มเติมได้ที่</p>
+              <a
+                className="font-bold text-base_orange"
+                href="https://www.facebook.com/KMUTT-Election-111526570306064"
+              >
+                KMUTT Election
+              </a>
+            </div>
           </div>
         </div>
       )}

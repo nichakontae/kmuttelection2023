@@ -9,12 +9,11 @@ import StepTwoButton from "./stepTwoButton";
 const SelectStep2 = () => {
   const context = useContext(coreContext);
   const [err, setErr] = useState(false);
-
   return (
     <Observer>
       {() => (
-        <div className="flex flex-col items-center w-full h-[90vh] pt-[68px]">
-          <div className="w-full bg-white flex flex-col justify-center">
+        <div className="flex flex-col items-center w-full h-[90vh] pt-[3rem]">
+          <div className="w-full bg-base_yellow flex flex-col justify-center">
             <p className="w-full text-center text-[24px] font-bold">
               เลือกสภานักศึกษา
             </p>
@@ -22,12 +21,12 @@ const SelectStep2 = () => {
               {context.user.faculty}
             </p>
           </div>
-          <div className="w-full text-center text-[20px] mt-[10px]">
+          <div className="w-full text-center text-[20px] mt-6">
             โปรดพิจารณาสภานักศึกษาให้ครบทุกคน
           </div>
-          <div className="w-full mt-[10px] px-6 mb-6 grid grid-flow-row grid-cols-1 lg:grid-cols-3 gap-[14px]">
+          <div className="lg:w-full w-full px-6 mt-10 lg:px-[128px] mb-10 grid grid-flow-row grid-cols-1 lg:grid-cols-2 gap-10">
             {_.map(context.councilList, (item, index) => (
-              <div className="bg-white h-[107px] flex px-[22px] py-4 space-x-3">
+              <div className="bg-white h-[107px] flex px-[22px] py-4 space-x-3 rounded-2xl shadow-lg">
                 <Image
                   src={context.apiPath + "/api/files/" + item.imageId}
                   width={61}
@@ -35,13 +34,13 @@ const SelectStep2 = () => {
                   objectFit="contain"
                   alt="Nominee"
                 />
-                <div className="flex flex-col justify-center h-full">
+                <div className="flex flex-col justify-center h-full pl-6">
                   <div className="font-bold text-[18px]">
                     {`${item.firstname} ${item.lastname}`}
                   </div>
                   <div className="text-[16px]">
                     ภาควิชา{item.field} ชั้นปีที่{" "}
-                    {65 - parseInt(item.studentId.substring(0, 2))}
+                    {66 - parseInt(item.studentId.substring(0, 2))}
                   </div>
                   <div className="flex space-x-3 pt-[6px]">
                     <StepTwoButton
