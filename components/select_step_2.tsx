@@ -9,7 +9,6 @@ import StepTwoButton from "./stepTwoButton";
 const SelectStep2 = () => {
   const context = useContext(coreContext);
   const [err, setErr] = useState(false);
-
   return (
     <Observer>
       {() => (
@@ -41,7 +40,7 @@ const SelectStep2 = () => {
                   </div>
                   <div className="text-[16px]">
                     ภาควิชา{item.field} ชั้นปีที่{" "}
-                    {65 - parseInt(item.studentId.substring(0, 2))}
+                    {66 - parseInt(item.studentId.substring(0, 2))}
                   </div>
                   <div className="flex space-x-3 pt-[6px]">
                     <StepTwoButton

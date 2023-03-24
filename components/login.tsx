@@ -61,14 +61,14 @@ const Login = () => {
           result.studentId,
           result.facultyTH,
           result.fieldTH,
-          result.studentYear,
+          parseInt(result.studentYear)+1,
           result.imagePath
         );
         context.setValue("user", user);
         context.setValue("token", result.jwttoken);
         // console.log(context.user);
         // console.log(context.token);
-        context.stepUp();
+        context.stepUp();       
       })
       .catch((error) => {
         if (error.response.data.status == 400) {
