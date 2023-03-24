@@ -13,7 +13,7 @@ class CoreContext {
   councilList = [];
   userImage = null
   token: null;
-  apiPath: string = "http://localhost:8080";
+  apiPath: string = "https://election.kmutt.ac.th";
   submitting = false;
   
 

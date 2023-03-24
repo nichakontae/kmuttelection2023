@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://0.tcp.ap.ngrok.io:11353",
+  baseURL: "https://election.kmutt.ac.th",
   headers: {
     "Content-Type": "application/json",
   },
