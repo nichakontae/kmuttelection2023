@@ -2,7 +2,6 @@ import ConfirmProfile from "components/confirm_profile";
 import ConfirmStep1 from "components/confirm_step_1";
 import ConfirmStep2 from "components/confirm_step_2";
 import Finish from "components/finish";
-import FinishNoCouncil from "components/finishNoCouncil";
 import Login from "components/login";
 import SelectStep1 from "components/select_step_1";
 import SelectStep2 from "components/select_step_2";
@@ -12,6 +11,7 @@ import Image from "next/image";
 import React, { useContext } from "react";
 import logo from "../public/KMUTT_Logo.png";
 import electionLogo from "../public/Logo.png";
+import FinishNoCouncil from "components/finishNoCouncil";
 
 const HomeRoute = () => {
   const context = useContext(coreContext);
@@ -48,34 +48,43 @@ const HomeRoute = () => {
                   alt="KMUTT Election 2023"
                 />
               </div>
-              {context.step !== 2 && context.step !== 5 && context.step !== 6 && (
-                <div className="w-full h-[14px] bg-[#D9D9D8]">
-                  <div
-                    className={`h-[14px] bg-base_orange ${
-                      context.totalStep === 5 && context.step === 3 && "w-1/3"
-                    } ${
-                      context.totalStep === 5 && context.step === 4 && "w-2/3"
-                    } ${
-                      context.totalStep === 5 && context.step === 5 && "w-3/3"
-                    }`}
-                  />
-                </div>
-              )}
+              {context.step !== 2 &&
+                context.step !== 7 &&
+                context.step !== 8 && (
+                  <div className="w-full h-[14px] bg-[#D9D9D8]">
+                    <div
+                      className={`h-[14px] bg-base_orange ${
+                        context.totalStep === 5 && context.step === 3 && "w-1/5"
+                      } ${
+                        context.totalStep === 5 && context.step === 4 && "w-2/5"
+                      } ${
+                        context.totalStep === 5 && context.step === 5 && "w-3/5"
+                      } ${
+                        context.totalStep === 5 && context.step === 6 && "w-4/5"
+                      } ${
+                        context.totalStep === 3 && context.step === 3 && "w-1/3"
+                      } ${
+                        context.totalStep === 3 && context.step === 4 && "w-2/3"
+                      }`}
+                    />
+                  </div>
+                )}
             </div>
           )}
-          {/* {context.step === 1 && <Login />}
+          {context.step === 1 && <Login />}
           {context.step === 2 && <ConfirmProfile />}
           {context.step === 3 && <SelectStep1 />}
           {context.step === 4 && <ConfirmStep1 />}
           {context.step === 5 && <SelectStep2 />}
           {context.step === 6 && <ConfirmStep2 />}
-          {context.step === 7 && <Finish />} */}
-          {context.step === 1 && <Login />}
+          {context.step === 7 && <Finish />}
+          {context.step === 8 && <FinishNoCouncil />}
+          {/* {context.step === 1 && <Login />}
           {context.step === 2 && <ConfirmProfile />}
           {context.step === 3 && <SelectStep2 />}
           {context.step === 4 && <ConfirmStep2 />}
           {context.step === 5 && <Finish />}
-          {context.step === 6 && <FinishNoCouncil/>}
+          {context.step === 6 && <FinishNoCouncil/>} */}
         </div>
       )}
     </Observer>

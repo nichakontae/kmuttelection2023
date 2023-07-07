@@ -2,15 +2,15 @@ import { coreContext } from "context/core_context";
 import { Observer } from "mobx-react-lite";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React, { useContext,useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import Button from "./button";
 
 const ConfirmProfile = () => {
   const context = useContext(coreContext);
   const router = useRouter();
   const fetchCouncil = async () => {
-    await context.prepareCouncil();    
-  }
+    await context.prepareCouncil();
+  };
   useEffect(() => {
     context.prepareUserImage();
     fetchCouncil();
@@ -66,10 +66,7 @@ const ConfirmProfile = () => {
             <Button
               color="orange"
               title="ถูกต้อง"
-              onClick={() => {
-                if (context.totalStep === 5) context.stepUp();
-                if (context.totalStep === 3) context.stepToFinish();
-              }}
+              onClick={() => context.stepUp()}
             />
           </div>
         </div>

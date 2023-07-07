@@ -7,7 +7,7 @@ import axios from "../axios";
 import logo from "../public/KMUTT_Logo.png";
 import electionLogo from "../public/Logo.png";
 import Button from "./button";
-import imgforlogin from '../public/login.png'
+import imgforlogin from "../public/login.png";
 
 const Login = () => {
   const [isWrongAuthen, setIsWrongAuthen] = useState("");
@@ -24,14 +24,14 @@ const Login = () => {
         "กรุณากรอกรหัสนักศึกษาและรหัสผ่านก่อนเข้าสู่ระบบ"
       );
     }
-    // if (
-    //   dayjs().isAfter("2022-04-28T13:00:00.000z") ||
-    //   dayjs().isBefore("2022-04-23T01:00:00.000z")
-    // ) {
-    //   return setIsWrongAuthen(
-    //     "ไม่สามารถเข้าระบบได้ เนื่องจากไม่อยู่ในช่วงลงคะแนน"
-    //   );
-    // }
+    if (
+      dayjs().isAfter("2023-07-12T08:00:00.000z") ||
+      dayjs().isBefore("2023-07-06T17:00:00.000z")
+    ) {
+      return setIsWrongAuthen(
+        "ไม่สามารถเข้าระบบได้ เนื่องจากไม่อยู่ในช่วงลงคะแนน"
+      );
+    }
     axios
       .post("/api/auth/login", body)
       .then((response) => {
@@ -61,14 +61,14 @@ const Login = () => {
           result.studentId,
           result.facultyTH,
           result.fieldTH,
-          parseInt(result.studentYear)+1,
+          parseInt(result.studentYear) + 1,
           result.imagePath
         );
         context.setValue("user", user);
         context.setValue("token", result.jwttoken);
         // console.log(context.user);
         // console.log(context.token);
-        context.stepUp();       
+        context.stepUp();
       })
       .catch((error) => {
         if (error.response.data.status == 400) {
@@ -82,9 +82,9 @@ const Login = () => {
       {() => (
         <div className="lg:flex items-center">
           <div className="hidden lg:block bg-[#F3ECE2] h-[100vh] p-[4rem]">
-             <Image src={imgforlogin} alt="the day for election"  />
+            <Image src={imgforlogin} alt="the day for election" />
           </div>
-        
+
           <div className="flex flex-col items-center justify-center w-full lg:w-[80%] h-[100vh] pt-[68px] ">
             <div>
               <Image

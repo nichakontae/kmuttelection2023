@@ -29,7 +29,7 @@ const ConfirmStep1 = () => {
           </div>
           <form>
             <div
-              className="grid grid-rows-6 min-w-[358px] min-h-[513px] p-2 mt-8 bg-white rounded-2xl"
+              className="grid grid-rows-6 min-w-[358px] min-h-[400px] p-2 mt-8 bg-white rounded-2xl"
               style={{
                 boxShadow: " 0px 4px 30px rgba(0, 0, 0, 0.25)",
               }}
@@ -81,7 +81,7 @@ const ConfirmStep1 = () => {
                         context.findParty()?.imageId
                       }
                       width={300}
-                      height={`${amountOfParty == 1? 346: 400}`}
+                      height={`${amountOfParty == 1 ? 250 : 400}`}
                       alt="Party"
                     />
                   </>
@@ -115,8 +115,12 @@ const ConfirmStep1 = () => {
                 title={context.totalStep === 5 ? "ยืนยัน" : "เสร็จสิ้น"}
                 disabled={context.submitting}
                 onClick={() => {
-                  if (context.totalStep === 5) context.stepUp();
-                  if (context.totalStep === 3) context.postVoteResult();
+                  if (context.totalStep === 5) {
+                    context.stepUp();
+                  }
+                  if (context.totalStep === 3) {
+                    context.postVoteResult();
+                  }
                 }}
               />
             </div>
