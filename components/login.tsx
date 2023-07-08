@@ -61,7 +61,7 @@ const Login = () => {
           result.studentId,
           result.facultyTH,
           result.fieldTH,
-          parseInt(result.studentYear) + 1,
+          result.studentYear,
           result.imagePath
         );
         context.setValue("user", user);
