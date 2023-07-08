@@ -8,17 +8,16 @@ import Button from "./button";
 const SelectStep1 = () => {
   const context = useContext(coreContext);
   const [err, setErr] = useState(false);
-  const [amountOfParty,setAmountOfParty] = useState(0);
+  const [amountOfParty, setAmountOfParty] = useState(0);
   const fetchParty = async () => {
-    await context.prepareParty()
-    setAmountOfParty(_.size(context.partyList))
-  }
+    await context.prepareParty();
+    setAmountOfParty(_.size(context.partyList));
+  };
 
   useEffect(() => {
-    fetchParty()
+    fetchParty();
     context.prepareCouncil();
   });
-    
 
   return (
     <Observer>
@@ -43,7 +42,9 @@ const SelectStep1 = () => {
                   <label
                     className={
                       context.selectedParty == item.id
-                        ? amountOfParty == 1? "flex flex-col p-3 rounded-md ml-1 mr-1": "flex flex-col p-3 bg-dim_brown bg-opacity-60 rounded-md ml-1 mr-1"
+                        ? amountOfParty == 1
+                          ? "flex flex-col p-3 rounded-md ml-1 mr-1"
+                          : "flex flex-col p-3 bg-dim_brown bg-opacity-60 rounded-md ml-1 mr-1"
                         : "flex flex-col p-3 ml-1 mr-1"
                     }
                   >
@@ -53,7 +54,7 @@ const SelectStep1 = () => {
                     <p className=" text-center text-[24px] ">{item.name}</p>
                     <Image
                       src={context.apiPath + "/api/files/" + item.imageId}
-                      width={132}
+                      width={250}
                       height={181}
                       alt="party"
                     />
@@ -62,7 +63,7 @@ const SelectStep1 = () => {
                         if (amountOfParty == 1) {
                           context.setValue("selectedParty", item.id);
                           return "";
-                        } else {                          
+                        } else {
                           return (
                             <input
                               type="radio"
