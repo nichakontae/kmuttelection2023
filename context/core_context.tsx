@@ -5,9 +5,9 @@ import axios from "../axios";
 import { log } from "console";
 
 class CoreContext {
-  step: number = 2;
+  step: number = 1;
   totalStep: number = 5;
-  user = {};
+  user = null;
   partyList = [];
   selectedParty: string = "";
   partyVote: number = -2;
