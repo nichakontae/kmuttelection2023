@@ -40,7 +40,7 @@ const SelectStep2 = () => {
                   </div>
                   <div className="text-[16px]">
                     ภาควิชา{item.field} ชั้นปีที่{" "}
-                    {66 - parseInt(item.studentId.substring(0, 2))}
+                    {67 - parseInt(item.studentId.substring(0, 2))}
                   </div>
                   <div className="flex space-x-3 pt-[6px]">
                     <StepTwoButton
