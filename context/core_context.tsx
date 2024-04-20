@@ -62,7 +62,8 @@ class CoreContext {
           _.filter(res.data, (item) => {
             const itemFaculty: string = item.faculty;
             const userFaculty: string = this.user.faculty;
-            return itemFaculty.localeCompare(userFaculty) === 0;
+            // return itemFaculty.localeCompare(userFaculty) === 0;
+            return userFaculty.includes(itemFaculty) || itemFaculty.includes(userFaculty);
           }),
           (item) => ({ ...item, vote: -2 })
         );
