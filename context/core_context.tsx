@@ -58,7 +58,6 @@ class CoreContext {
         headers: { Authorization: this.token },
       });
       if (res.status === 200) {
-        console.log(this.user.faculty);
         this.councilList = _.map(
           _.filter(res.data, (item) => {
             const itemFaculty: string = item.faculty;
