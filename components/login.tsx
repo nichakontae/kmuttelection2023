@@ -25,8 +25,9 @@ const Login = () => {
       );
     }
     if (
-      dayjs().isBefore("2024-04-20T06:00:00.000z") ||
-      dayjs().isAfter("2024-04-24T16:59:59.000z")
+      // dayjs().isBefore("2024-04-20T06:00:00.000z") ||
+      // dayjs().isAfter("2024-04-24T16:59:59.000z")
+      true
     ) {
       return setIsWrongAuthen(
         "ไม่สามารถเข้าระบบได้ เนื่องจากไม่อยู่ในช่วงลงคะแนน"
